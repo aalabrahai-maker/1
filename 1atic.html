@@ -66,6 +66,20 @@
             color: #1e293b;
             margin: 0 auto;
         }
+
+        /* Navigation Active State */
+        .nav-link.active {
+            background-color: rgba(30, 41, 59, 0.8); /* slate-800 */
+            color: #14b8a6; /* brand-500 */
+            border-right: 4px solid #14b8a6;
+        }
+        .view-section {
+            animation: fadeIn 0.3s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
     </style>
 </head>
 <body class="text-gray-800 h-screen overflow-hidden flex">
@@ -83,24 +97,24 @@
         </div>
 
         <div class="flex-1 overflow-y-auto py-4 custom-scrollbar">
-            <nav class="space-y-1 px-3">
-                <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-800 hover:text-white transition">
+            <nav class="space-y-1 px-3" id="sidebar-nav">
+                <a href="#" onclick="switchView('view-dashboard', this)" class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-800 hover:text-white transition">
                     <i class="fas fa-home w-5 text-center"></i> <span>الرئيسية</span>
                 </a>
                 
                 <div class="text-xs font-semibold text-slate-500 uppercase tracking-wider mt-5 mb-2 px-3">المبيعات والمشتريات</div>
-                <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-800 hover:text-white transition">
+                <a href="#" onclick="switchView('view-placeholder', this)" class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-800 hover:text-white transition">
                     <i class="fas fa-users w-5 text-center"></i> <span>العملاء</span>
                 </a>
-                <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-800 hover:text-white transition">
+                <a href="#" onclick="switchView('view-placeholder', this)" class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-800 hover:text-white transition">
                     <i class="fas fa-truck-loading w-5 text-center"></i> <span>الموردين</span>
                 </a>
-                <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-800 hover:text-white transition text-brand-400 bg-slate-800/50">
+                <a href="#" onclick="switchView('view-invoices', this)" class="nav-link active text-brand-400 bg-slate-800/50 flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-800 hover:text-white transition">
                     <i class="fas fa-file-invoice-dollar w-5 text-center"></i> <span>الفواتير</span>
                 </a>
                 
                 <div class="text-xs font-semibold text-slate-500 uppercase tracking-wider mt-5 mb-2 px-3">الأنظمة المتقدمة (ZATCA)</div>
-                <a href="#" class="flex items-center justify-between px-3 py-2 rounded-lg hover:bg-slate-800 hover:text-white transition">
+                <a href="#" onclick="switchView('view-placeholder', this)" class="nav-link flex items-center justify-between px-3 py-2 rounded-lg hover:bg-slate-800 hover:text-white transition">
                     <div class="flex items-center gap-3">
                         <i class="fas fa-qrcode w-5 text-center text-green-400"></i> <span>الفواتير الإلكترونية</span>
                     </div>
@@ -108,52 +122,52 @@
                 </a>
                 
                 <div class="text-xs font-semibold text-slate-500 uppercase tracking-wider mt-5 mb-2 px-3">العمليات</div>
-                <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-800 hover:text-white transition">
+                <a href="#" onclick="switchView('view-placeholder', this)" class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-800 hover:text-white transition">
                     <i class="fas fa-boxes w-5 text-center"></i> <span>المخزن</span>
                 </a>
-                <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-800 hover:text-white transition">
+                <a href="#" onclick="switchView('view-placeholder', this)" class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-800 hover:text-white transition">
                     <i class="fas fa-cash-register w-5 text-center"></i> <span>محطات نقاط البيع</span>
                 </a>
-                <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-800 hover:text-white transition">
+                <a href="#" onclick="switchView('view-placeholder', this)" class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-800 hover:text-white transition">
                     <i class="fas fa-receipt w-5 text-center"></i> <span>المصروفات</span>
                 </a>
                 
                 <div class="text-xs font-semibold text-slate-500 uppercase tracking-wider mt-5 mb-2 px-3">المالية والإدارة</div>
-                <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-800 hover:text-white transition">
+                <a href="#" onclick="switchView('view-placeholder', this)" class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-800 hover:text-white transition">
                     <i class="fas fa-university w-5 text-center"></i> <span>المصرف</span>
                 </a>
-                <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-800 hover:text-white transition">
+                <a href="#" onclick="switchView('view-placeholder', this)" class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-800 hover:text-white transition">
                     <i class="fas fa-calculator w-5 text-center"></i> <span>المحاسبة</span>
                 </a>
-                <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-800 hover:text-white transition">
+                <a href="#" onclick="switchView('view-placeholder', this)" class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-800 hover:text-white transition">
                     <i class="fas fa-money-check-alt w-5 text-center"></i> <span>العملات الأجنبية</span>
                 </a>
                 
                 <div class="text-xs font-semibold text-slate-500 uppercase tracking-wider mt-5 mb-2 px-3">التجارة الإلكترونية والمدفوعات</div>
-                <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-800 hover:text-white transition">
+                <a href="#" onclick="switchView('view-placeholder', this)" class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-800 hover:text-white transition">
                     <i class="fas fa-store w-5 text-center"></i> <span>المتجر الإلكتروني</span>
                 </a>
-                <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-800 hover:text-white transition">
+                <a href="#" onclick="switchView('view-placeholder', this)" class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-800 hover:text-white transition">
                     <i class="fas fa-credit-card w-5 text-center"></i> <span>المدفوعات الإلكترونية</span>
                 </a>
                 
                 <div class="text-xs font-semibold text-slate-500 uppercase tracking-wider mt-5 mb-2 px-3">أخرى</div>
-                <a href="#" class="flex items-center justify-between px-3 py-2 rounded-lg hover:bg-slate-800 hover:text-white transition">
+                <a href="#" onclick="switchView('view-placeholder', this)" class="nav-link flex items-center justify-between px-3 py-2 rounded-lg hover:bg-slate-800 hover:text-white transition">
                     <div class="flex items-center gap-3">
                         <i class="fas fa-chart-pie w-5 text-center"></i> <span>التقارير</span>
                     </div>
                     <span class="bg-blue-500/20 text-blue-400 text-[10px] px-2 py-0.5 rounded">+70</span>
                 </a>
-                <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-800 hover:text-white transition">
+                <a href="#" onclick="switchView('view-placeholder', this)" class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-800 hover:text-white transition">
                     <i class="fas fa-palette w-5 text-center"></i> <span>مصمم الفواتير</span>
                 </a>
-                <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-800 hover:text-white transition">
+                <a href="#" onclick="switchView('view-placeholder', this)" class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-800 hover:text-white transition">
                     <i class="fas fa-users-cog w-5 text-center"></i> <span>المستخدمين والشركات</span>
                 </a>
-                <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-800 hover:text-white transition">
+                <a href="#" onclick="switchView('view-placeholder', this)" class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-800 hover:text-white transition">
                     <i class="fas fa-cloud-download-alt w-5 text-center"></i> <span>النسخ الاحتياطي التلقائي</span>
                 </a>
-                <a href="#" class="flex items-center justify-between px-3 py-2 rounded-lg hover:bg-slate-800 hover:text-white transition">
+                <a href="#" onclick="switchView('view-placeholder', this)" class="nav-link flex items-center justify-between px-3 py-2 rounded-lg hover:bg-slate-800 hover:text-white transition">
                     <div class="flex items-center gap-3">
                         <i class="fas fa-code w-5 text-center text-purple-400"></i> <span>وصول API</span>
                     </div>
@@ -173,10 +187,10 @@
                     <i class="fas fa-bars text-xl"></i>
                 </button>
                 <div class="text-sm font-medium text-gray-500 flex items-center gap-2">
-                    <i class="fas fa-file-invoice text-gray-400"></i>
-                    <span>الفواتير</span>
+                    <i class="fas fa-layer-group text-gray-400"></i>
+                    <span>النظام المحاسبي</span>
                     <i class="fas fa-chevron-left text-xs text-gray-300"></i>
-                    <span class="text-gray-800 font-bold">إنشاء فاتورة ضريبية (ZATCA)</span>
+                    <span class="text-gray-800 font-bold" id="header-title">الفواتير</span>
                 </div>
             </div>
 
@@ -201,11 +215,40 @@
         </header>
 
         <!-- Content Scrollable Area -->
-        <div class="flex-1 overflow-y-auto p-4 md:p-6 pb-24">
+        <div class="flex-1 overflow-y-auto p-4 md:p-6 pb-24 relative">
             
-            <div class="max-w-5xl mx-auto space-y-6">
-                <!-- Notifications/Alerts Area -->
-                <div id="toast-container" class="fixed top-20 left-1/2 transform -translate-x-1/2 z-50 transition-all duration-300"></div>
+            <!-- Notifications/Alerts Area -->
+            <div id="toast-container" class="fixed top-20 left-1/2 transform -translate-x-1/2 z-50 transition-all duration-300 pointer-events-none"></div>
+
+            <!-- Dashboard View -->
+            <div id="view-dashboard" class="view-section hidden max-w-5xl mx-auto">
+                <div class="bg-white p-10 rounded-2xl border border-gray-200 shadow-sm text-center mt-10">
+                    <div class="w-24 h-24 bg-brand-50 rounded-full flex items-center justify-center mx-auto mb-6 shadow-inner">
+                        <i class="fas fa-chart-pie text-4xl text-brand-500"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold text-gray-800 mb-3">لوحة القيادة</h2>
+                    <p class="text-gray-500 text-lg">نظرة عامة على الأداء المالي، المبيعات، والإيرادات.</p>
+                    <div class="mt-8 flex justify-center gap-4">
+                        <button onclick="switchView('view-invoices', document.querySelector('[onclick*=\'view-invoices\']'))" class="bg-brand-600 hover:bg-brand-700 text-white px-6 py-2.5 rounded-lg font-bold shadow-md transition flex items-center gap-2">
+                            إصدار فاتورة جديدة <i class="fas fa-arrow-left text-sm"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Placeholder View for Under Construction Pages -->
+            <div id="view-placeholder" class="view-section hidden max-w-5xl mx-auto">
+                <div class="bg-white p-10 rounded-2xl border border-gray-200 shadow-sm text-center mt-10">
+                    <div class="w-24 h-24 bg-gray-50 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-tools text-4xl text-gray-400"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold text-gray-800 mb-3" id="placeholder-title">تحت الإنشاء</h2>
+                    <p class="text-gray-500 text-lg">جاري العمل على تطوير هذه الواجهة برمجياً لتلبي احتياجات مؤسسة اتيك.</p>
+                </div>
+            </div>
+
+            <!-- Invoices View (Existing Functionality) -->
+            <div id="view-invoices" class="view-section max-w-5xl mx-auto space-y-6">
 
                 <!-- Main Invoice Card -->
                 <div class="glass-panel rounded-2xl overflow-hidden">
@@ -218,7 +261,7 @@
                                 <p class="text-xs text-slate-300">فاتورة إلكترونية متوافقة مع المرحلة الأولى والثانية (ZATCA)</p>
                             </div>
                         </div>
-                        <div class="bg-brand-500/20 text-brand-300 px-3 py-1 rounded border border-brand-500/30 text-sm font-bold">
+                        <div id="invoice-number-badge" class="bg-brand-500/20 text-brand-300 px-3 py-1 rounded border border-brand-500/30 text-sm font-bold">
                             INV-2026-0014
                         </div>
                     </div>
@@ -369,16 +412,16 @@
                         </div>
                         <div class="flex gap-3">
                             <button type="button" onclick="prepareAndPrintPDF()" class="bg-white border border-gray-300 text-gray-700 hover:bg-gray-50 px-6 py-2.5 rounded-lg font-bold text-sm shadow-sm transition flex items-center gap-2">
-                                <i class="fas fa-file-pdf text-red-500"></i> تصدير PDF
+                                <i class="fas fa-file-pdf text-red-500"></i> معاينة وتصدير PDF
                             </button>
                             <button type="button" onclick="generateZatcaInvoice()" class="bg-brand-600 hover:bg-brand-700 text-white px-8 py-2.5 rounded-lg font-bold text-sm shadow-md transition flex items-center gap-2 group">
-                                <i class="fas fa-qrcode group-hover:scale-110 transition-transform"></i> حفظ وإنشاء الفاتورة
+                                <i class="fas fa-check-circle group-hover:scale-110 transition-transform"></i> إصدار وحفظ الفاتورة
                             </button>
                         </div>
                     </div>
                 </div>
 
-            </div>
+            </div> <!-- End of view-invoices -->
         </div>
     </main>
 
@@ -502,12 +545,48 @@
         // Initialize App
         window.onload = function() {
             // Set current time for invoice
+            setCurrentTime();
+            renderItems();
+        };
+
+        // UI Routing / View Switching logic
+        function switchView(viewId, element) {
+            // Update active state in sidebar
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active', 'text-brand-400', 'bg-slate-800/50');
+            });
+            if(element) {
+                element.classList.add('active', 'text-brand-400', 'bg-slate-800/50');
+            }
+
+            // Hide all views
+            document.querySelectorAll('.view-section').forEach(view => {
+                view.classList.add('hidden');
+            });
+
+            // Show selected view
+            const targetView = document.getElementById(viewId);
+            if(targetView) {
+                targetView.classList.remove('hidden');
+                
+                // Update header title based on link text if clicked
+                if(element) {
+                    const titleText = element.querySelector('span').innerText;
+                    document.getElementById('header-title').innerText = titleText;
+                    
+                    if(viewId === 'view-placeholder') {
+                        document.getElementById('placeholder-title').innerText = titleText;
+                    }
+                }
+            }
+        }
+
+        // Helper to set invoice current time
+        function setCurrentTime() {
             const now = new Date();
             now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
             document.getElementById('invoice-datetime').value = now.toISOString().slice(0,16);
-
-            renderItems();
-        };
+        }
 
         // Utility: Show custom toast message
         function showToast(message, type = 'success') {
@@ -718,10 +797,17 @@
 
         // Action: Validate and Generate Invoice
         function generateZatcaInvoice() {
-            const buyerName = document.getElementById('buyer-name').value;
-            if(!buyerName) {
-                showToast('الرجاء إدخال اسم العميل أولاً', 'error');
-                document.getElementById('buyer-name').focus();
+            const invoiceType = document.getElementById('invoice-type').value;
+            let buyerNameInput = document.getElementById('buyer-name');
+            
+            // Auto-fill for simplified invoices (B2C) if empty to facilitate fast checkouts
+            if(!buyerNameInput.value && invoiceType === 'simplified') {
+                buyerNameInput.value = 'عميل نقدي';
+            }
+
+            if(!buyerNameInput.value) {
+                showToast('الرجاء إدخال اسم العميل (أو اختر فاتورة مبسطة B2C للعميل النقدي)', 'error');
+                buyerNameInput.focus();
                 return;
             }
 
@@ -731,9 +817,35 @@
                 return;
             }
 
-            showToast('تم حفظ الفاتورة وإنشاء الباركود الضريبي بنجاح (ZATCA)');
+            // Prepare UI for success and new invoice
+            showToast('تم إصدار الفاتورة وحفظها بنجاح! جاري التجهيز لفاتورة جديدة...', 'success');
+            
+            // Reset the form after 2.5 seconds to streamline issuing new invoices
+            setTimeout(() => {
+                resetInvoiceForm();
+            }, 2500);
         }
 
+        // Reset Form to facilitate continuous issuing
+        function resetInvoiceForm() {
+            document.getElementById('buyer-name').value = '';
+            document.getElementById('buyer-vat').value = '';
+            
+            // Reset Items to single empty row
+            items = [{ id: 1, name: '', qty: 1, price: 0 }];
+            nextItemId = 2;
+            renderItems();
+            
+            // Increment dummy invoice number (just for visual effect)
+            const invBadge = document.getElementById('invoice-number-badge');
+            if(invBadge) {
+                let currentNum = parseInt(invBadge.innerText.split('-').pop());
+                invBadge.innerText = 'INV-2026-' + String(currentNum + 1).padStart(4, '0');
+            }
+            
+            setCurrentTime();
+            showToast('النموذج جاهز لإصدار فاتورة جديدة', 'info');
+        }
 
         // Prepare data and show PDF preview
         function prepareAndPrintPDF() {
